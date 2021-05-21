@@ -23,10 +23,11 @@ def _hello_world():
             indices = []
             for i in range(0, len(model), 1):
                 indices.append(model[i]['Title'])
-
-        return jsonify(utils.recommend('Phòng cho thuê mới 100% tại Cần Thơ',cosine_sim, indices, model))
+        title = data.title(id)
+        result = utils.recommend(title,cosine_sim, indices, model)
+        return jsonify(result)
     else :
-	    return "Hello, Flask!"
+	return "Hello, Flask!"
 
 # @app.route('/getId', methods=['POST'])
 # def getID():
@@ -41,6 +42,6 @@ def _hello_world():
 #     return jsonify(utils.recommend('Phòng cho thuê mới 100% tại Cần Thơ',cosine_sim, indices, model))
 
 if __name__ == '__main__':
-    app.run(debug=True,threaded=True, port=5000)
+    app.run(debug=True,threaded=True, port=3000)
     
 
