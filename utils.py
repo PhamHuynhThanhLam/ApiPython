@@ -41,10 +41,10 @@ def freq_words(x, terms = 30):
 #   ax.set(ylabel = 'Word') 
 #   plt.show()
 
-# nltk.download('stopwords')
-stop_words = set(stopwords.words('english'))
 # function to remove stopwords
 def remove_stopwords(text):
+    nltk.download('stopwords')
+    stop_words = set(stopwords.words('english'))    
     no_stopword_text = [w for w in str(text).split() if not w in stop_words]
     return ' '.join(no_stopword_text)
 
