@@ -1,4 +1,3 @@
-import pyodbc
 from models import Motel
 import requests
 import utils
