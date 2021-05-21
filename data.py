@@ -3,7 +3,7 @@ import requests
 import utils
 
 def requre(id):
-    r = requests.get('http://localhost:61101/api/Motels/GetDataPython/'+ id)
+    r = requests.get('http://localhost:5001/api/Motels/GetDataPython/'+ id)
     d = r.json()
     data = []
     if len(data) != 0:
