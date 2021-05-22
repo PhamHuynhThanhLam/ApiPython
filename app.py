@@ -2,7 +2,6 @@
 from flask import Flask, jsonify, request
 import data
 import utils
-import requests
 
 # Khởi tạo model.
 global model 
@@ -18,43 +17,23 @@ app = Flask(__name__)
 def _hello_world():
     if request.method == 'POST':
         id = request.form["id"]
-        model = requre(id)
-        # if len(model) != 0:
-        #     count_matrix,cosine_sim = utils.count(model)
-        #     indices = []
-        #     for i in range(0, len(model), 1):
-        #         indices.append(model[i]['Title'])
-        # title = data.title(id)
-        # result = utils.recommend(title,cosine_sim, indices, model)
-        return jsonify(model)
+        linkdata = request.form["linkdata"]
+        linktitle = request.form["linktitle"]
+        try:
+            model = data.requre(linkdata, id)
+            if len(model) != 0:
+                count_matrix,cosine_sim = utils.count(model)
+                indices = []
+                for i in range(0, len(model), 1):
+                    indices.append(model[i]['Title'])
+            title = data.title(linktitle, id)
+            result = utils.recommend(title,cosine_sim, indices, model)
+            return jsonify(result)
+        except:
+            return "Error"
     else :
 	    return "Hello, Flask!"
-
-def requre(id):
-    try:
-        r = requests.get("http://localhost:61101/api/Motels/GetDataTitlePython/"+ id)
-        d = r.json()
-        data = []
-        test = ""
-        if len(d) != 0:
-            test = 1
-    except Exception as e:
-        test = e
-    return test
-
-# @app.route('/getId', methods=['POST'])
-# def getID():
-#     id = request.form["id"]
-#     model = data.requre(id)
-#     if len(model) != 0:
-#         count_matrix,cosine_sim = utils.count(model)
-#         indices = []
-#         for i in range(0, len(model), 1):
-#             indices.append(model[i]['Title'])
-
-#     return jsonify(utils.recommend('Phòng cho thuê mới 100% tại Cần Thơ',cosine_sim, indices, model))
 
 if __name__ == '__main__':
     app.run(debug=True,threaded=True, port=5000)
     
-
