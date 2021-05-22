@@ -18,14 +18,15 @@ def _hello_world():
     if request.method == 'POST':
         id = request.form["id"]
         model = data.requre(id)
-        if len(model) != 0:
-            count_matrix,cosine_sim = utils.count(model)
-            indices = []
-            for i in range(0, len(model), 1):
-                indices.append(model[i]['Title'])
-        title = data.title(id)
-        result = utils.recommend(title,cosine_sim, indices, model)
-        return jsonify(result)
+        # if len(model) != 0:
+        #     count_matrix,cosine_sim = utils.count(model)
+        #     indices = []
+        #     for i in range(0, len(model), 1):
+        #         indices.append(model[i]['Title'])
+        # title = data.title(id)
+        # result = utils.recommend(title,cosine_sim, indices, model)
+        # return jsonify(result)
+        return jsonify(model)
     else :
 	    return "Hello, Flask!"
 
@@ -42,6 +43,6 @@ def _hello_world():
 #     return jsonify(utils.recommend('Phòng cho thuê mới 100% tại Cần Thơ',cosine_sim, indices, model))
 
 if __name__ == '__main__':
-    app.run(debug=True,threaded=True, port=3000)
+    app.run(debug=True,threaded=True, port=5000)
     
 
