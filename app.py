@@ -32,7 +32,7 @@ def _hello_world():
 
 def requre(id):
     try:
-        r = requests.get('http://localhost:61101/api/Motels/GetDataPython/'+ id,timeout=5)
+        r = requests.get('https://w3schools.com')
         d = r.json()
         data = []
         test = ""
