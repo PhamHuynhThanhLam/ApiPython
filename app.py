@@ -35,11 +35,11 @@ def requre(id):
         r = requests.get('http://localhost:61101/api/Motels/GetDataPython/'+ id)
         d = r.json()
         data = []
-        test = 0
+        test = ""
         if len(d) != 0:
             test = 1
-    except:
-        test = 2
+    except Exception as e:
+        test = e
     return test
 
 # @app.route('/getId', methods=['POST'])
