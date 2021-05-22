@@ -26,7 +26,7 @@ def _hello_world():
         # title = data.title(id)
         # result = utils.recommend(title,cosine_sim, indices, model)
         # return jsonify(result)
-        return jsonify(model)
+        return jsonify('http://localhost:5001/api/Motels/GetDataTitlePython/'+ id)
     else :
 	    return "Hello, Flask!"
 
