@@ -32,7 +32,7 @@ def _hello_world():
 
 def requre(id):
     try:
-        r = requests.get('http://api.github.com')
+        r = requests.get("http://localhost:61101/api/Motels/GetDataTitlePython/"+ id)
         d = r.json()
         data = []
         test = ""
