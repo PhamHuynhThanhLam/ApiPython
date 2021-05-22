@@ -2,6 +2,7 @@
 from flask import Flask, jsonify, request
 import data
 import utils
+import requests
 
 # Khởi tạo model.
 global model 
@@ -17,7 +18,7 @@ app = Flask(__name__)
 def _hello_world():
     if request.method == 'POST':
         id = request.form["id"]
-        model = data.requre(id)
+        model = requre(id)
         # if len(model) != 0:
         #     count_matrix,cosine_sim = utils.count(model)
         #     indices = []
@@ -28,6 +29,15 @@ def _hello_world():
         return jsonify(model)
     else :
 	    return "Hello, Flask!"
+
+def requre(id):
+    r = requests.get('http://localhost:61101/api/Motels/GetDataPython/'+ id)
+    d = r.json()
+    data = []
+    test = 0
+    if len(d) != 0:
+        test = 1
+    return test
 
 # @app.route('/getId', methods=['POST'])
 # def getID():
