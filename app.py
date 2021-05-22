@@ -26,9 +26,9 @@ def _hello_world():
         # title = data.title(id)
         # result = utils.recommend(title,cosine_sim, indices, model)
         # return jsonify(result)
-	r = requests.get('http://localhost:5001/api/Motels/GetDataPython/'+ id)
-    	d = r.json()
-        return jsonify(d)
+	# r = requests.get('http://localhost:5001/api/Motels/GetDataPython/'+ id)
+    	# d = r.json()
+        return jsonify('http://localhost:5001/api/Motels/GetDataPython/'+ id)
     else :
 	    return "http://localhost:5001/api/Motels/GetDataPython/"
 
