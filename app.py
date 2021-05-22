@@ -32,7 +32,7 @@ def _hello_world():
 
 def requre(id):
     try:
-        r = requests.get('https://w3schools.com')
+        r = requests.get('http://api.github.com')
         d = r.json()
         data = []
         test = ""
