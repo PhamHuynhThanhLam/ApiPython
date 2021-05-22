@@ -2,6 +2,7 @@
 from flask import Flask, jsonify, request
 import data
 import utils
+from flask_cors import CORS, cross_origin
 
 # Khởi tạo model.
 global model 
@@ -10,6 +11,8 @@ count_matrix = []
 cosine_sim = []
 # Khởi tạo flask app
 app = Flask(__name__)
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Khai báo các route 1 cho API
 @app.route('/', methods=['GET','POST'])
