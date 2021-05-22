@@ -17,7 +17,7 @@ app = Flask(__name__)
 def _hello_world():
     if request.method == 'POST':
         id = request.form["id"]
-        title = data.title(id)
+        title = data.requre(id)
         return jsonify(title)
     else :
 	    return "Hello, Flask!"
