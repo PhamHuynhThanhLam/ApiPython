@@ -28,7 +28,7 @@ def _hello_world():
         # return jsonify(result)
         return jsonify('http://localhost:5001/api/Motels/GetDataTitlePython/'+ id)
     else :
-	    return "Hello, Flask!"
+	    return "http://localhost:5001/api/Motels/GetDataTitlePython/"
 
 # @app.route('/getId', methods=['POST'])
 # def getID():
