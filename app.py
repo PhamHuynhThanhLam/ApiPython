@@ -17,8 +17,15 @@ app = Flask(__name__)
 def _hello_world():
     if request.method == 'POST':
         id = request.form["id"]
-        title = data.requre(id)
-        return jsonify(title)
+        model = data.requre(id)
+        # if len(model) != 0:
+        #     count_matrix,cosine_sim = utils.count(model)
+        #     indices = []
+        #     for i in range(0, len(model), 1):
+        #         indices.append(model[i]['Title'])
+        # title = data.title(id)
+        # result = utils.recommend(title,cosine_sim, indices, model)
+        return jsonify(model)
     else :
 	    return "Hello, Flask!"
 
