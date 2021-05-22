@@ -16,6 +16,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 # Khai báo các route 1 cho API
 @app.route('/', methods=['GET','POST'])
+@cross_origin()
 # Khai báo hàm xử lý dữ liệu.
 def _hello_world():
     if request.method == 'POST':
