@@ -17,7 +17,7 @@ app = Flask(__name__)
 def _hello_world():
     if request.method == 'POST':
         id = request.form["id"]
-        model = data.requre(id)
+        # model = data.requre(id)
         # if len(model) != 0:
         #     count_matrix,cosine_sim = utils.count(model)
         #     indices = []
