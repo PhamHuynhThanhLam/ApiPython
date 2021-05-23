@@ -11,12 +11,14 @@ count_matrix = []
 cosine_sim = []
 # Khởi tạo flask app
 app = Flask(__name__)
-cors = CORS(app)
+app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy   dog'
 app.config['CORS_HEADERS'] = 'Content-Type'
+
+cors = CORS(app, resources={r"/": {"origins": "http://localhost:port"}})
 
 # Khai báo các route 1 cho API
 @app.route('/', methods=['GET','POST'])
-@cross_origin()
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
 # Khai báo hàm xử lý dữ liệu.
 def _hello_world():
     if request.method == 'POST':
